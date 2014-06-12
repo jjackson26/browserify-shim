@@ -156,7 +156,7 @@ function wrap(content, config, packageRoot, browserAliases) {
   return boundWindow;
 }
 
-module.exports = function shim(file) {
+module.exports = function shim(file, shimConfig) {
   var content = '';
   var stream = through(write, end);
   return stream;
@@ -190,6 +190,6 @@ module.exports = function shim(file) {
       }
 
       stream.queue(null);
-    });
+    }, shimConfig);
   }
 }
